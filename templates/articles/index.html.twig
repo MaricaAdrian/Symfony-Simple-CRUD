@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Title{% endblock %}
+{% block body %}
+<h1>Articles</h1>
+    {% if message is defined and message is not null %}
+        <h1 class="text-center">{{ message }}</h1>
+    {% else %}
+    <h1 class="text-center">NO MESSAGE TO BE DISPLAYED</h1>
+    {% endif %}
+    {% if articles %}
+    <table id="table" class="table table-striped">
+        <thead>
+            <tr>
+                    <th>
+                        Article Title
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>
+                        {{ article.title }}
+                    </td>
+                    <td>
+                        <a href="/admin/article/view/{{ article.id }}" class="btn btn-primary">View</a>
+                        <a href="/admin/article/edit/{{ article.id }}" class="btn btn-warning">Edit</a>
+                        <a href="#" class="btn btn-dark delete-article" data-id="{{ article.id }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>
+            No articles in the database</p>
+        </p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+ <script src="/js/main.js"></script>
+{% endblock %}

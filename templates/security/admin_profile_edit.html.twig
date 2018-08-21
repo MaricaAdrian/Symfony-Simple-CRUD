@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Admin Edit - {{ admin.username }}{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('message') %}
+
+    <h1 class="text-center">{{ flashMessage }}</h1>
+
+{% endfor %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

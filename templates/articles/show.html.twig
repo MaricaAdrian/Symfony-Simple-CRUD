@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Article - {{ article.title }}{% endblock %}
+{% block body %}
+    <p>
+        ID: <strong>{{ article.id }}</strong>
+    </p>
+    <p>Title: <strong>{{ article.title }}</strong></p>
+    <p>
+        Author:
+        <strong>{{ article.author }}</strong>
+    </p>
+    <p>
+        Content:
+        <strong>{{ article.content }}</strong>
+    </p>
+    <hr />
+    <a href="/admin">Go back</a>
+{% endblock %}
